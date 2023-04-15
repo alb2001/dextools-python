@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "dextools-python"
+version = "0.1.0"
+description = "A simple Python API wrapper for DEXTools"
+repository = "https://github.com/alb2001/dextools-python"
+authors = ["alb2001 <alb2001@outlook.es>"]
+readme = "README.md"
+keywords = ["dextools", "api", "wrapper", "blockchain", "trading", "exchange", "uniswap"]
+packages = [{include = "dextools_python"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.28.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
