@@ -12,8 +12,9 @@ To obtain an API key, you will need to fill up [this form](https://forms.gle/yvi
 
 
 ## Getting Started
-To get started, initiate a DextoolsAPI instance object by passing your API key:
+To get started, import the package, and initiate a DextoolsAPI instance object by passing your API key:
 ```
+from dextools_python import DextoolsAPI
 dextools = DextoolsAPI(api_key)
 ```
 
