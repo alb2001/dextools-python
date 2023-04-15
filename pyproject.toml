@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "A simple Python API wrapper for DEXTools"
 repository = "https://github.com/alb2001/dextools-python"
 authors = ["alb2001 <alb2001@outlook.es>"]
+license = "MIT"
 readme = "README.md"
 keywords = ["dextools", "api", "wrapper", "blockchain", "trading", "exchange", "uniswap"]
 packages = [{include = "dextools_python"}]
