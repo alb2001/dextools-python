@@ -34,5 +34,7 @@ jobs:
       run: |
         poetry install
     - name: Test with pytest
+      env:
+        DextoolsAPIKey: ${{ secrets.DextoolsAPIKey }}
       run: |
         poetry run pytest
