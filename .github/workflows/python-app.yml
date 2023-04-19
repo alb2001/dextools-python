@@ -26,8 +26,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Setup poetry
+      run: |
+        pip install poetry
+        poetry config virtualenvs.in-project true
+    - name: Setup environment
+      run: |
+        poetry install
+        poetry add flake8 --group dev
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
