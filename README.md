@@ -73,7 +73,7 @@ print(exchange_list)
 ```
 
 ## Testing
-A set of tests have been included inside `tests` folder. You will need to setup an environment variable as `DextoolsAPIKEY` with your API key
+A set of tests have been included inside `tests` folder. You will need to setup an environment variable as `DextoolsAPIKey` with your API key
 
 ## Chain slugs
 Below is a list of current chain slugs for supported blockhains:
