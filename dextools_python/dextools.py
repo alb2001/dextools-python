@@ -5,7 +5,8 @@ class DextoolsAPI:
     def __init__(self, api_key, version="v1", useragent="API-Wrapper/0.1"):
         self.url = f"https://api.dextools.io/{version}"
         self._api_key = api_key
-        self._headers = {"X-API-Key": self._api_key, "accept": "application/json", "User-Agent": useragent}
+        self._useragent = useragent
+        self._headers = {"X-API-Key": self._api_key, "accept": "application/json", "User-Agent": self._useragent}
 
     def get_pair(self, chain, address):
         endpoint = "/pair"
