@@ -33,7 +33,6 @@ jobs:
     - name: Setup environment
       run: |
         poetry install
-        source $(poetry env info -p)/bin/activate
     - name: Test with pytest
       run: |
-        pytest
+        poetry run pytest
