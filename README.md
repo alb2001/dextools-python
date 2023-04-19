@@ -1,4 +1,8 @@
 # DEXTools Python
+[![Python application](https://github.com/alb2001/dextools-python/actions/workflows/python-app.yml/badge.svg)](https://github.com/alb2001/dextools-python/actions/workflows/python-app.yml)
+[![Downloads](https://static.pepy.tech/badge/dextools-python)](https://pepy.tech/project/dextools-python)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![PyPI](https://img.shields.io/pypi/v/dextools-python)
 A simple Python API wrapper for DEXTools
 
 ## Installation
