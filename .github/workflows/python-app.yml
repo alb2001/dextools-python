@@ -28,7 +28,7 @@ jobs:
         python -m pip install --upgrade pip
     - name: Setup poetry
       run: |
-        pip install poetry
+        pip --no-cache-dir install poetry
         poetry config virtualenvs.in-project true
     - name: Setup environment
       run: |
