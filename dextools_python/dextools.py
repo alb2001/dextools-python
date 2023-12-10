@@ -1,12 +1,14 @@
 import requests
 
+DEFAULT_URL = "https://open-api.dextools.io/free"
+DEFAULT_USER_AGENT = "API-Wrapper/0.2.1"
 
 class DextoolsAPI:
-    def __init__(self, api_key, useragent="API-Wrapper/0.2"):
-        self.url = f"https://api.dextools.io/v1"
+    def __init__(self, api_key, url=DEFAULT_URL, useragent=DEFAULT_USER_AGENT):
+        self.url = f"{url}/v1"
         self._api_key = api_key
         self._useragent = useragent
-        self._headers = {"X-API-Key": self._api_key, "accept": "application/json", "User-Agent": self._useragent}
+        self._headers = {"X-BLOBR-KEY": self._api_key, "accept": "application/json", "User-Agent": self._useragent}
 
     def get_pair(self, chain, address):
         endpoint = "/pair"
@@ -30,11 +32,11 @@ class DextoolsAPI:
 
 
 class DextoolsAPIV2:
-    def __init__(self, api_key, useragent="API-Wrapper/0.2"):
-        self.url = f"https://api.dextools.io/v2"
+    def __init__(self, api_key, url=DEFAULT_URL, useragent=DEFAULT_USER_AGENT):
+        self.url = f"{url}/v2".format(url)
         self._api_key = api_key
         self._useragent = useragent
-        self._headers = {"X-API-Key": self._api_key, "accept": "application/json", "User-Agent": self._useragent}
+        self._headers = {"X-BLOBR-KEY": self._api_key, "accept": "application/json", "User-Agent": self._useragent}
 
     def get_blockchain(self, chain):
         endpoint = "/blockchain/"
