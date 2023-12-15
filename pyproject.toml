@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dextools-python"
-version = "0.2"
+version = "0.2.1"
 description = "A simple Python API wrapper for DEXTools"
 repository = "https://github.com/alb2001/dextools-python"
 authors = ["alb2001 <alb2001@outlook.es>"]
@@ -11,10 +11,10 @@ packages = [{include = "dextools_python"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-requests = "^2.28.2"
+requests = "^2.31.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.3.1"
+pytest = "^7.4.3"
 
 
 [build-system]
