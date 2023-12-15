@@ -30,11 +30,27 @@ class DextoolsAPI:
 
 
 class DextoolsAPIV2:
-    def __init__(self, api_key, useragent="API-Wrapper/0.2"):
-        self.url = f"https://api.dextools.io/v2"
+    def __init__(self, api_key, useragent="API-Wrapper/0.2", plan="partner"):
         self._api_key = api_key
         self._useragent = useragent
-        self._headers = {"X-API-Key": self._api_key, "accept": "application/json", "User-Agent": self._useragent}
+        self.plan = None
+
+        self.set_plan(plan)
+
+    def set_plan(self, plan):
+        # python versions older than 3.10 don't support switch/case statements, using if elif instead
+        plan = plan.lower()
+        plans = ["free", "standard", "advanced", "pro"]
+        if plan in plans:
+            self.plan = plan
+            self.url = f"https://open-api.dextools.io/{plan}"
+            self._headers = {"X-BLOBR-KEY": self._api_key, "accept": "application/json", "User-Agent": self._useragent}
+        elif plan == "partner":
+            self.plan = plan
+            self.url = f"https://api.dextools.io/v2"
+            self._headers = {"X-API-Key": self._api_key, "accept": "application/json", "User-Agent": self._useragent}
+        else:
+            raise Exception("Plan not found")
 
     def get_blockchain(self, chain):
         endpoint = "/blockchain/"
