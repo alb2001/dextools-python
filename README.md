@@ -18,7 +18,7 @@ To obtain an API key, head to the [Developer Portal](https://developer.dextools.
 
 
 ## Getting Started
-There are 2 versions of the Dextools API
+There are 2 versions of the Dextools API. [Dextools API v1](https://api.dextools.io/docs) and [Dextools API v2](https://api.dextools.io/blobr/v2/docs)
 
 ### Version 1
 To get started, import the package, and initiate a `DextoolsAPI` instance object by passing your API key:
@@ -33,16 +33,29 @@ dextools = DextoolsAPI(api_key, useragent="User-Agent")
 ```
 
 ### Version 2
-To get started, import the package, and initiate a `DextoolsAPIV2` instance object by passing your API key:
+To get started, import the package, and initiate a `DextoolsAPIV2` instance object by passing your API key and your plan:
 ```
 from dextools_python import DextoolsAPIV2
-dextools = DextoolsAPIV2(api_key)
+dextools = DextoolsAPIV2(api_key, plan="free")
 ```
 
 You can also pass an optional user agent:
 ```
-dextools = DextoolsAPIV2(api_key, useragent="User-Agent")
+dextools = DextoolsAPIV2(api_key, useragent="User-Agent", plan="free")
 ```
+
+If you don't specify any plan when instantiating the object, it will default to "partner" plan
+
+#### Available plans - Setting your plan
+You can setup your plan when setting the object instance by providing the `plan` argument in the constructor. If no `plan` is specified, it will default to "partner" plan
+
+To set your plan after the object is created, you can use the `set_plan("your_plan")` method
+```
+dextools.set_plan("standard")
+```
+
+Available values: `"free"`, `"standard"`, `"advanced"`, `"pro"`, and `"partner"`
+
 
 ## Version 1 Queries
 Below are a set of queries supported by the [Dextools API v1](https://api.dextools.io/docs). All data is returned as a Python dictionary for easy data handling.
@@ -109,7 +122,7 @@ blockchains = dextools.get_blockchains()
 print(blockchains)
 ```
 
-##### Get blockchains sorted by default settings and descending order
+#### Get blockchains sorted by default settings and descending order
 ```
 blockchains = dextools.get_blockchains(sort="name", order="desc")
 print(blockchains)
