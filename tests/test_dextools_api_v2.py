@@ -230,26 +230,41 @@ def test_get_token_pools_sorted_by_creationBlock(dextools_instance):
     assert isinstance(response["data"], dict)
     assert isinstance(response["data"]["results"], list)
 
-def get_ranking_hotpools(dextools_instance):
+def test_get_ranking_hotpools(dextools_instance):
     chain = "ether"
-    response = dextools_instance.get_ranking_hotpools(dextools_instance)
+    response = dextools_instance.get_ranking_hotpools(chain)
 
     assert response["statusCode"] == 200
     assert isinstance(response, dict)
     assert isinstance(response["data"], list)
 
-def get_ranking_gainers(dextools_instance):
+def test_get_ranking_gainers(dextools_instance):
     chain = "ether"
-    response = dextools_instance.get_ranking_gainers(dextools_instance)
+    response = dextools_instance.get_ranking_gainers(chain)
 
     assert response["statusCode"] == 200
     assert isinstance(response, dict)
     assert isinstance(response["data"], list)
 
-def get_ranking_losers(dextools_instance):
+def test_get_ranking_losers(dextools_instance):
     chain = "ether"
-    response = dextools_instance.get_ranking_losers(dextools_instance)
+    response = dextools_instance.get_ranking_losers(chain)
 
     assert response["statusCode"] == 200
     assert isinstance(response, dict)
     assert isinstance(response["data"], list)
+
+def test_plans(dextools_instance):
+    plans = ["free", "standard", "advanced", "pro"]
+    for plan in plans:
+        dextools_instance.set_plan(plan)
+        assert dextools_instance.url == f"https://open-api.dextools.io/{plan}"
+        assert dextools_instance._headers.get("X-BLOBR-KEY") == API_KEY
+
+    dextools_instance.set_plan("partner")
+    assert dextools_instance.url == f"https://api.dextools.io/v2"
+    assert dextools_instance._headers.get("X-API-Key") == API_KEY
+
+    with pytest.raises(Exception) as excinfo:
+        dextools_instance.set_plan("Invalid plan")
+    assert str(excinfo.value) == "Plan not found"
