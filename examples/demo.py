@@ -9,6 +9,9 @@ dextools = DextoolsAPI(api_key)
 # Initiate DextoolsAPI instance object by passing your "API Key", and an optional "User Agent":
 dextools = DextoolsAPI(api_key, useragent="User-Agent")
 
+# Setting your plan after creating the object
+dextools.set_plan("partner")
+
 
 # Get pair of a token, pass a "chain slug" and a "pair address":
 pair = dextools.get_pair("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
