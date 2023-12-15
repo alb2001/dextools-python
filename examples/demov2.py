@@ -10,6 +10,9 @@ api_key = "YOUR_API_KEY"
 # Initiate DextoolsAPI instance object by passing your "API Key":
 dextools = DextoolsAPIV2(api_key)
 
+# Setting your plan after creating the object
+dextools.set_plan("partner")
+
 # Blockchain
 # Get blockchain info
 print("Get blockchain info")
