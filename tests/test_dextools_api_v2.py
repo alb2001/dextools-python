@@ -258,8 +258,8 @@ def test_plans(dextools_instance):
     plans = ["free", "standard", "advanced", "pro"]
     for plan in plans:
         dextools_instance.set_plan(plan)
-        assert dextools_instance.url == f"https://open-api.dextools.io/{plan}/v2"
-        assert dextools_instance._headers.get("X-BLOBR-KEY") == API_KEY
+        assert dextools_instance.url == f"http://public-api.dextools.io/{plan}/v2"
+        assert dextools_instance._headers.get("X-API-Key") == API_KEY
 
     dextools_instance.set_plan("partner")
     assert dextools_instance.url == f"https://api.dextools.io/v2"
