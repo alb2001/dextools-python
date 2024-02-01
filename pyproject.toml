@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dextools-python"
-version = "0.2.2"
+version = "0.2.3"
 description = "A simple Python API wrapper for DEXTools"
 repository = "https://github.com/alb2001/dextools-python"
 authors = ["alb2001 <alb2001@outlook.es>"]
