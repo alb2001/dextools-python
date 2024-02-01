@@ -43,8 +43,8 @@ class DextoolsAPIV2:
         plans = ["free", "standard", "advanced", "pro"]
         if plan in plans:
             self.plan = plan
-            self.url = f"https://open-api.dextools.io/{plan}/v2"
-            self._headers = {"X-BLOBR-KEY": self._api_key, "accept": "application/json", "User-Agent": self._useragent}
+            self.url = f"http://public-api.dextools.io/{plan}/v2"
+            self._headers = {"X-API-Key": self._api_key, "accept": "application/json", "User-Agent": self._useragent}
         elif plan == "partner":
             self.plan = plan
             self.url = f"https://api.dextools.io/v2"
