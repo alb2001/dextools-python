@@ -1,3 +1,6 @@
+# Version 0.2.4
++ Added support for "trial" plan
+
 # Version 0.2.3
 + Added support for new subscription based api endpoints, removed old ones
   
