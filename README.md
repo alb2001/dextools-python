@@ -36,12 +36,12 @@ dextools = DextoolsAPI(api_key, useragent="User-Agent")
 To get started, import the package, and initiate a `DextoolsAPIV2` instance object by passing your API key and your plan:
 ```
 from dextools_python import DextoolsAPIV2
-dextools = DextoolsAPIV2(api_key, plan="free")
+dextools = DextoolsAPIV2(api_key, plan="trial")
 ```
 
 You can also pass an optional user agent:
 ```
-dextools = DextoolsAPIV2(api_key, useragent="User-Agent", plan="free")
+dextools = DextoolsAPIV2(api_key, useragent="User-Agent", plan="trial")
 ```
 
 If you don't specify any plan when instantiating the object, it will default to "partner" plan
@@ -54,7 +54,7 @@ To set your plan after the object is created, you can use the `set_plan("your_pl
 dextools.set_plan("standard")
 ```
 
-Available values: `"free"`, `"standard"`, `"advanced"`, `"pro"`, and `"partner"`
+Available values: `"free"`, `"trial"`, `"standard"`, `"advanced"`, `"pro"`, and `"partner"`
 
 
 ## Version 1 Queries

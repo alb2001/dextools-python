@@ -40,7 +40,7 @@ class DextoolsAPIV2:
     def set_plan(self, plan):
         # python versions older than 3.10 don't support switch/case statements, using if elif instead
         plan = plan.lower()
-        plans = ["free", "standard", "advanced", "pro"]
+        plans = ["free", "trial", "standard", "advanced", "pro"]
         if plan in plans:
             self.plan = plan
             self.url = f"http://public-api.dextools.io/{plan}/v2"
