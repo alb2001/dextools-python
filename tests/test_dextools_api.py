@@ -8,8 +8,8 @@ API_KEY = os.getenv("DextoolsAPIKey")
 
 @pytest.fixture
 def dextools_instance():
-    dextools = DextoolsAPI(API_KEY)
-    return dextools
+    dextools_instance = DextoolsAPI(API_KEY)
+    return dextools_instance
 
 def test_get_pair_success(dextools_instance):
     chain = "ether"
