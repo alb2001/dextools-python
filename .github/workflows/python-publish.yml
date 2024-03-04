@@ -1,0 +1,38 @@
+# This workflow will upload a Python Package using Poetry when a release is created
+
+
+name: Upload Python Package
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+    - name: Setup poetry
+      run: |
+        pip --no-cache-dir install poetry
+        poetry config virtualenvs.in-project true
+        poetry config repositories.testpypi https://test.pypi.org/legacy/
+        poetry config pypi-token.testpypi ${{ secrets.PYPI_API_TOKEN }}
+    - name: Setup environment
+      run: |
+        poetry install
+    - name: Build and publish package
+      run: |
+        poetry publish --build --repository testpypi
