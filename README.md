@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="350" height="350" src="/assets/dextools-python.png">
+  <img width="1042" height="350" src="/assets/dextools-python.png">
 </p>
 
 # DEXTools Python
