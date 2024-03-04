@@ -1,4 +1,5 @@
 .venv
+.vscode
 dist
 dextools_python/__pycache__
 tests/__pycache__

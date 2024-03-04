@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="350" height="350" src="/assets/dextools-python.png">
+</p>
+
 # DEXTools Python
 [![Python application](https://github.com/alb2001/dextools-python/actions/workflows/python-app.yml/badge.svg)](https://github.com/alb2001/dextools-python/actions/workflows/python-app.yml)
 [![Downloads](https://static.pepy.tech/badge/dextools-python)](https://pepy.tech/project/dextools-python)
@@ -5,7 +9,58 @@
 [![PyPI](https://img.shields.io/pypi/v/dextools-python)](https://pypi.org/project/dextools-python/)
 
 A simple Python API wrapper for DEXTools.
-Supports [Dextools API v1](https://api.dextools.io/docs) and [Dextools API v2](https://api.dextools.io/blobr/v2/docs)
+Supports [Dextools API v1](https://api.dextools.io/docs) and [Dextools API v2](https://developer.dextools.io/docs/start)
+
+1. [Installation](#installation)
+2. [Obtaining API Key](#obtaining-api-key)
+3. [Getting Started](#getting-started)
+    1. [Version 1](#version-1)
+    2. [Version 2](#version-2)
+        1. [Available plans - Setting your plan](#available-plans---setting-your-plan)
+4. [Version 1 Queries](#version-1-queries)
+    1. [Get pairs of a token](#get-pairs-of-a-token)
+    2. [Get token details](#get-token-details)
+    3. [Get chain list](#get-chain-list)
+    4. [Get exchange list](#get-exchange-list)
+5. [Version 2 Queries](#version-2-queries)
+    1. [Blockchain](#blockchain)
+        1. [Get blockchain info](#get-blockchain-info)
+        2. [Get blockchains sorted by default settings](#get-blockchains-sorted-by-default-settings)
+        3. [Get blockchains sorted by default settings and descending order](#get-blockchains-sorted-by-default-settings-and-descending-order)
+    2. [Exchange](#exchange)
+        1. [Get dex factory info](#get-dex-factory-info)
+        2. [Get dexes on a specific chain](#get-dexes-on-a-specific-chain)
+        3. [Get dexes on a specific chain sorted by name and descending order](#get-dexes-on-a-specific-chain-sorted-by-name-and-descending-order)
+    3. [Pool](#pool)
+        1. [Get pool info](#get-pool-info)
+        2. [Get pool liquidity](#get-pool-liquidity)
+        3. [Get pool score](#get-pool-score)
+        4. [Get pool price](#get-pool-price)
+        5. [Get pools](#get-pools)
+        6. [Get pools sorted by `creationBlock` and descending order and providing block numbers instead](#get-pools-sorted-by-creationblock-and-descending-order-and-providing-block-numbers-instead)
+    4. [Token](#token)
+        1. [Get token](#get-token)
+        2. [Get token locks](#get-token-locks)
+        3. [Get token score](#get-token-score)
+        4. [Get token info](#get-token-info)
+        5. [Get token price](#get-token-price)
+        6. [Get tokens](#get-tokens)
+        7. [Get tokens sorted by `creationBlock` and descending order and providing block numbers instead in descending order](#get-tokens-sorted-by-creationblock-and-descending-order-and-providing-block-numbers-instead-in-descending-order)
+        8. [Get tokens sorted by `socialsInfoUpdated` and descending order and datetimes in descending order](#get-tokens-sorted-by-socialsinfoupdated-and-descending-order-and-datetimes-in-descending-order)
+        9. [Get token pools](#get-token-pools)
+        10. [Get token pools sorted by `creationBlock` and descending order and providing block numbers instead in descending order](#get-token-pools-sorted-by-creationblock-and-descending-order-and-providing-block-numbers-instead-in-descending-order)
+    5. [Rankings](#rankings)
+        1. [Get hot pools](#get-hot-pools)
+        2. [Get gainers](#get-gainers)
+        3. [Get losers](#get-losers)
+6. [Page and PageSize arguments](#page-and-pagesize-arguments)
+7. [Asynchronous support with asyncio](#asynchronous-support-with-asyncio)
+8. [Examples](#examples)
+9. [Testing](#testing)
+10. [Supported Blockchains](#supported-blockchains)
+11. [Authors](#authors)
+12. [More information](#more-information)
+
 
 ## Installation
 
@@ -18,7 +73,7 @@ To obtain an API key, head to the [Developer Portal](https://developer.dextools.
 
 
 ## Getting Started
-There are 2 versions of the Dextools API. [Dextools API v1](https://api.dextools.io/docs) and [Dextools API v2](https://api.dextools.io/blobr/v2/docs)
+There are 2 versions of the Dextools API. [Dextools API v1](https://api.dextools.io/docs) and [Dextools API v2](https://developer.dextools.io/docs/start)
 
 ### Version 1
 To get started, import the package, and initiate a `DextoolsAPI` instance object by passing your API key:
@@ -107,7 +162,7 @@ print(exchange_list)
 ```
 
 ## Version 2 Queries
-Below are a set of queries supported by the [Dextools API v2](https://api.dextools.io/blobr/v2/docs). All data is returned as a Python dictionary for easy data handling.
+Below are a set of queries supported by the [Dextools API v2](https://developer.dextools.io/docs/start). All data is returned as a Python dictionary for easy data handling.
 
 ### Blockchain
 #### Get blockchain info
@@ -264,11 +319,47 @@ losers = dextools.get_ranking_losers("ether")
 print(losers)
 ```
 
-### Page and PageSize arguments
-Some methods support the `page` and `pageSize` arguments. Check out the [Dextools API v2](https://api.dextools.io/v2/docs) documentation for more information.
+## Page and PageSize arguments
+Some methods support the `page` and `pageSize` arguments. Check out the API documentation for more information.
+
+## Asynchronous support with asyncio
+Asynchronous support has been added through [asyncio](https://docs.python.org/3/library/asyncio.html).
+
+Through a context manager (session will close automatically when the context manager ends):
+```
+import asyncio
+from dextools_python import AsyncDextoolsAPIV2
+
+api_key = "YOUR_API_KEY"
+
+async def main():
+    async with AsyncDextoolsAPIV2(api_key, plan="partner") as dextools:
+        response = await dextools.get_blockchains()
+        print(response)
+
+asyncio.run(main())
+```
+
+Creating an instance and then closing the session explicitly at the end:
+```
+import asyncio
+from dextools_python import AsyncDextoolsAPIV2
+
+api_key = "YOUR_API_KEY"
+
+async def main():
+    dextools = AsyncDextoolsAPIV2(api_key, plan="partner")
+
+    response = await dextools.get_blockchains()
+    print(response)
+
+    await dextools.close()
+
+asyncio.run(main())
+```
 
 ## Examples
-Check out the `examples` folder for some example scripts.
+Check out the `examples` folder for some synchronous and asynchronous example scripts.
 
 ## Testing
 A set of tests have been included inside `tests` folder. You will need to set an environment variable as `DextoolsAPIKey` using your API key.
@@ -284,5 +375,6 @@ Dextools adds support for new blockchains from time to time. `dextools.get_block
 * [dextools-python on PyPI](https://pypi.org/project/dextools-python)
 * [DEXTools](https://www.dextools.io)
 * [Dextools API v1](https://api.dextools.io/docs)
-* [Dextools API v2](https://api.dextools.io/blobr/v2/docs)
+* [Dextools API v2](https://developer.dextools.io/docs/start)
 * [Developer Portal](https://developer.dextools.io/)
+* [asyncio](https://docs.python.org/3/library/asyncio.html)

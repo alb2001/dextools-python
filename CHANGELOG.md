@@ -1,3 +1,8 @@
+# Version 0.3
++ Asynchronous support using asyncio
++ Added support for Python 3.8
++ New logo
+
 # Version 0.2.4
 + Added support for "trial" plan
 
