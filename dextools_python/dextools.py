@@ -2,7 +2,7 @@ import requests
 
 
 class DextoolsAPI:
-    def __init__(self, api_key, useragent="API-Wrapper/0.2"):
+    def __init__(self, api_key, useragent="API-Wrapper/0.3"):
         self.url = f"https://api.dextools.io/v1"
         self._api_key = api_key
         self._useragent = useragent
@@ -30,7 +30,7 @@ class DextoolsAPI:
 
 
 class DextoolsAPIV2:
-    def __init__(self, api_key, useragent="API-Wrapper/0.2", plan="partner"):
+    def __init__(self, api_key, useragent="API-Wrapper/0.3", plan="partner"):
         self._api_key = api_key
         self._useragent = useragent
         self.plan = None
@@ -131,7 +131,6 @@ class DextoolsAPIV2:
         endpoint = "/token/"
         response = requests.get(f"{self.url}{endpoint}{chain}/{address}/pools", params={"order": order, "sort": sort, "from": from_, "to": to, "page": page, "pageSize": pageSize}, headers=self._headers)
         return response.json()
-        pass
 
     def get_ranking_hotpools(self, chain):
         endpoint = "/ranking/"
