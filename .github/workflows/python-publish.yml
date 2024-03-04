@@ -1,7 +1,7 @@
 # This workflow will upload a Python Package using Poetry when a release is created
 
 
-name: Upload Python Package
+name: Upload Python Package to PyPi
 
 on:
   release:
@@ -28,11 +28,10 @@ jobs:
       run: |
         pip --no-cache-dir install poetry
         poetry config virtualenvs.in-project true
-        poetry config repositories.testpypi https://test.pypi.org/legacy/
-        poetry config pypi-token.testpypi ${{ secrets.PYPI_API_TOKEN }}
+        poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
     - name: Setup environment
       run: |
         poetry install
     - name: Build and publish package
       run: |
-        poetry publish --build --repository testpypi
+        poetry publish --build
