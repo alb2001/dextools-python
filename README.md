@@ -1,6 +1,4 @@
-<p align="center">
-  <img width="521" height="175" src="https://raw.githubusercontent.com/alb2001/dextools-python/master/assets/dextools-python.png">
-</p>
+![Image](https://raw.githubusercontent.com/alb2001/dextools-python/master/assets/dextools-python.png)
 
 # DEXTools Python
 [![Python application](https://github.com/alb2001/dextools-python/actions/workflows/python-app.yml/badge.svg)](https://github.com/alb2001/dextools-python/actions/workflows/python-app.yml)
