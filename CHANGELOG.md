@@ -1,3 +1,7 @@
+# Version 0.3.1
++ Separated modules
++ Added logger
+
 # Version 0.3
 + Asynchronous support using asyncio
 + Added support for Python 3.8
