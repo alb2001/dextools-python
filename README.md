@@ -322,6 +322,7 @@ Some methods support the `page` and `pageSize` arguments. Check out the API docu
 
 ## Asynchronous support with asyncio
 Asynchronous support has been added through [asyncio](https://docs.python.org/3/library/asyncio.html).
+You can initiate an `AsyncDextoolsAPI` instance for API version 1, or an `AsyncDextoolsAPIV2` instance for API version 2.
 
 Through a context manager (session will close automatically when the context manager ends):
 ```
