@@ -43,7 +43,7 @@ Supports [Dextools API v1](https://api.dextools.io/docs) and [Dextools API v2](h
         3. [Get token score](#get-token-score)
         4. [Get token info](#get-token-info)
         5. [Get token price](#get-token-price)
-        6. [Get token price](#get-token-audit)
+        6. [Get token audit](#get-token-audit)
         7. [Get tokens](#get-tokens)
         8. [Get tokens sorted by `creationBlock` and descending order and providing block numbers instead in descending order](#get-tokens-sorted-by-creationblock-and-descending-order-and-providing-block-numbers-instead-in-descending-order)
         8. [Get tokens sorted by `socialsInfoUpdated` and descending order and datetimes in descending order](#get-tokens-sorted-by-socialsinfoupdated-and-descending-order-and-datetimes-in-descending-order)
