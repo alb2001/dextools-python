@@ -93,6 +93,13 @@ class AsyncDextoolsAPIV2:
         async with self._session.get(f"{self.url}{endpoint}{chain}/{address}/price", headers=self._headers) as response:
             logger.debug(response.url)
             return await response.json()
+        
+    async def get_pool_locks(self, chain, address):
+        endpoint = "/pool/"
+
+        async with self._session.get(f"{self.url}{endpoint}{chain}/{address}/locks", headers=self._headers) as response:
+            logger.debug(response.url)
+            return await response.json()
 
     async def get_pools(self, chain, from_, to, order="asc", sort="creationTime", page=None, pageSize=None):
         endpoint = "/pool/"
@@ -133,6 +140,13 @@ class AsyncDextoolsAPIV2:
         endpoint = "/token/"
         
         async with self._session.get(f"{self.url}{endpoint}{chain}/{address}/price", headers=self._headers) as response:
+            logger.debug(response.url)
+            return await response.json()
+        
+    async def get_token_audit(self, chain, address):
+        endpoint = "/token/"
+        
+        async with self._session.get(f"{self.url}{endpoint}{chain}/{address}/audit", headers=self._headers) as response:
             logger.debug(response.url)
             return await response.json()
     

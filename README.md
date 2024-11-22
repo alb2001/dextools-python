@@ -34,16 +34,18 @@ Supports [Dextools API v1](https://api.dextools.io/docs) and [Dextools API v2](h
         2. [Get pool liquidity](#get-pool-liquidity)
         3. [Get pool score](#get-pool-score)
         4. [Get pool price](#get-pool-price)
-        5. [Get pools](#get-pools)
-        6. [Get pools sorted by `creationBlock` and descending order and providing block numbers instead](#get-pools-sorted-by-creationblock-and-descending-order-and-providing-block-numbers-instead)
+        5. [Get pool locks](#get-pool-locks)
+        6. [Get pools](#get-pools)
+        7. [Get pools sorted by `creationBlock` and descending order and providing block numbers instead](#get-pools-sorted-by-creationblock-and-descending-order-and-providing-block-numbers-instead)
     4. [Token](#token)
         1. [Get token](#get-token)
         2. [Get token locks](#get-token-locks)
         3. [Get token score](#get-token-score)
         4. [Get token info](#get-token-info)
         5. [Get token price](#get-token-price)
-        6. [Get tokens](#get-tokens)
-        7. [Get tokens sorted by `creationBlock` and descending order and providing block numbers instead in descending order](#get-tokens-sorted-by-creationblock-and-descending-order-and-providing-block-numbers-instead-in-descending-order)
+        6. [Get token price](#get-token-audit)
+        7. [Get tokens](#get-tokens)
+        8. [Get tokens sorted by `creationBlock` and descending order and providing block numbers instead in descending order](#get-tokens-sorted-by-creationblock-and-descending-order-and-providing-block-numbers-instead-in-descending-order)
         8. [Get tokens sorted by `socialsInfoUpdated` and descending order and datetimes in descending order](#get-tokens-sorted-by-socialsinfoupdated-and-descending-order-and-datetimes-in-descending-order)
         9. [Get token pools](#get-token-pools)
         10. [Get token pools sorted by `creationBlock` and descending order and providing block numbers instead in descending order](#get-token-pools-sorted-by-creationblock-and-descending-order-and-providing-block-numbers-instead-in-descending-order)
@@ -225,6 +227,12 @@ pool_price = dextools.get_pool_price("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1
 print(pool_price)
 ```
 
+#### Get pool locks
+```
+pool_locks = dextools.get_pool_locks("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
+print(pool_locks)
+```
+
 #### Get pools
 ```
 pools = dextools.get_pools("ether", from_="2023-11-14T19:00:00", to="2023-11-14T23:00:00")
@@ -266,6 +274,12 @@ print(token_info)
 ```
 token_price = dextools.get_token_price("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
 print(token_price)
+```
+
+#### Get token audit
+```
+token_audit = dextools.get_token_audit("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
+print(token_audit)
 ```
 
 #### Get tokens

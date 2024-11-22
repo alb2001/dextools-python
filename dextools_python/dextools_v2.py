@@ -75,6 +75,12 @@ class DextoolsAPIV2:
         response = requests.get(f"{self.url}{endpoint}{chain}/{address}/price", headers=self._headers)
         logger.debug(response.url)
         return response.json()
+    
+    def get_pool_locks(self, chain, address):
+        endpoint = "/pool/"
+        response = requests.get(f"{self.url}{endpoint}{chain}/{address}/locks", headers=self._headers)
+        logger.debug(response.url)
+        return response.json()    
 
     def get_pools(self, chain, from_, to, order="asc", sort="creationTime", page=None, pageSize=None):
         endpoint = "/pool/"
@@ -111,6 +117,12 @@ class DextoolsAPIV2:
         response = requests.get(f"{self.url}{endpoint}{chain}/{address}/price", headers=self._headers)
         logger.debug(response.url)
         return response.json()
+    
+    def get_token_audit(self, chain, address):
+        endpoint = "/token/"
+        response = requests.get(f"{self.url}{endpoint}{chain}/{address}/audit", headers=self._headers)
+        logger.debug(response.url)
+        return response.json()    
     
     def get_tokens(self, chain, from_, to, order="asc", sort="socialsInfoUpdated", page=None, pageSize=None):
         endpoint = "/token/"

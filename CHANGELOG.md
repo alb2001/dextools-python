@@ -1,3 +1,9 @@
+# Version 0.3.2
++ Added Get pool locks
++ Added Get token audit
++ Updated doc with new methods
++ Updated demo examples
+
 # Version 0.3.1
 + Separated modules
 + Added logger

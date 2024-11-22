@@ -68,6 +68,11 @@ async def instance():
     pool_price = await dextools.get_pool_price("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
     pp.pprint(pool_price)
 
+    # Get pool locks
+    print("Get pool locks")
+    pool_locks = await dextools.get_pool_locks("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
+    pp.pprint(pool_locks)
+
     # Get pools
     print("Get pools")
     pools = await dextools.get_pools("ether", from_="2023-11-14T19:00:00", to="2023-11-14T23:00:00")
@@ -103,6 +108,11 @@ async def instance():
     print("Get token price")
     token_price = await dextools.get_token_price("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
     pp.pprint(token_price)
+
+    # Get token audit
+    print("Get token audit")
+    token_audit = await dextools.get_token_audit("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
+    pp.pprint(token_audit)
 
     # Get tokens
     print("Get tokens")
@@ -213,6 +223,11 @@ async def context_manager():
         pool_price = await dextools.get_pool_price("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
         pp.pprint(pool_price)
 
+        # Get pool locks
+        print("Get pool locks")
+        pool_locks = await dextools.get_pool_locks("ether", "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d")
+        pp.pprint(pool_locks)
+
         # Get pools
         print("Get pools")
         pools = await dextools.get_pools("ether", from_="2023-11-14T19:00:00", to="2023-11-14T23:00:00")
@@ -248,6 +263,11 @@ async def context_manager():
         print("Get token price")
         token_price = await dextools.get_token_price("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
         pp.pprint(token_price)
+
+        # Get token audit
+        print("Get token audit")
+        token_audit = await dextools.get_token_audit("ether", "0xfb7b4564402e5500db5bb6d63ae671302777c75a")
+        pp.pprint(token_audit)
 
         # Get tokens
         print("Get tokens")

@@ -90,6 +90,16 @@ async def test_get_pool_score(dextools_instance):
     assert isinstance(response["data"]["dextScore"], dict)
 
 @pytest.mark.asyncio
+async def test_get_pool_locks(dextools_instance):
+    chain = "ether"
+    pool = "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d"
+    response = await dextools_instance.get_pool_locks(chain, pool)
+
+    assert response["statusCode"] == 200
+    assert isinstance(response, dict)
+    assert isinstance(response["data"], dict)
+
+@pytest.mark.asyncio
 async def test_get_pool_price(dextools_instance):
     chain = "ether"
     pool = "0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d"
@@ -182,6 +192,16 @@ async def test_get_token_price(dextools_instance):
     chain = "ether"
     token = "0xfb7b4564402e5500db5bb6d63ae671302777c75a"
     response = await dextools_instance.get_token_price(chain, token)
+
+    assert response["statusCode"] == 200
+    assert isinstance(response, dict)
+    assert isinstance(response["data"], dict)
+
+@pytest.mark.asyncio
+async def test_get_token_audit(dextools_instance):
+    chain = "ether"
+    token = "0xfb7b4564402e5500db5bb6d63ae671302777c75a"
+    response = await dextools_instance.get_token_audit(chain, token)
 
     assert response["statusCode"] == 200
     assert isinstance(response, dict)
